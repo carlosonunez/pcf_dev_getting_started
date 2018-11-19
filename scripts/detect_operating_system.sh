@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 get_operating_system() {
-  case uname in
+  raw_os_string=$(uname)
+  case "$raw_os_string" in
     Linux)
       echo "Linux"
       ;;
@@ -12,7 +13,7 @@ get_operating_system() {
       echo "Windows"
       ;;
     *)
-      echo "Unsupported"
+      echo "Unsupported: $raw_os_string"
       ;;
   esac
 }
